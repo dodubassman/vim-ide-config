@@ -1,0 +1,30 @@
+#Web stuff
+alias apache2='sudo apachectl -k'
+alias vhost='cd /etc/apache2/virtualhosts/'
+alias hosts='sudo vim /etc/hosts'
+alias importdump='mysql -u root -proot'
+alias exportdump='mysqldump -u root -proot --skip-triggers'
+alias rmdsstores='find ./ -type f | grep .DS_Store | xargs rm'
+alias sf='php app/console'
+alias virtualhost='sudo ~/Documents/scripts/virtualhost.sh'
+alias autoloads='php53 -d memory_limit=-1 bin/php/ezpgenerateautoloads.php'
+alias clearcache='php53 -d memory_limit=-1 bin/php/ezcache.php --clear-all'
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias ctags='/usr/local/Cellar/ctags/5.8/bin/ctags'
+
+# Postgresql
+alias postgres_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias postgres_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+
+#php
+alias php='/usr/local/Cellar/php55/5.5.16/bin/php'
+alias php53='/usr/local/Cellar/php53/5.3.28/bin/php'
+
+#Autologin
+alias nikka="ssh umanit@git.umanit.fr"
+alias raspberrypi="ssh pi@78.193.226.223 -p 6666"
+
+#Screen
+alias screen='/usr/local/Cellar/screen/4.2.1/bin/screen'

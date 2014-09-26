@@ -1,0 +1,8 @@
+AutoComplPop => Permet d'ouvrir la fenetre d'autocompletion à mesure qu'on tappe
+Nerdtree => Explorateur IDE's style
+phpcomplete => optimise l'autocompletion "intéligement" pour le php
+snipmate => permet la gestion des snippet (ie, on tape "if <tab>" et BAM ça créé la structure du IF, nikel).
+airline => la barre du haut et du bas sexy, où on voit moult info, ainsi que les buffers utilisés
+solarized => thème de couleur
+signify => affiche l'état GIT du fichier courrant (nombre de lignes supprimées / ajoutées / modifiées)
+twig => ajoute la colorisation syntaxique pour le twig
