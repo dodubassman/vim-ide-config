@@ -20,6 +20,7 @@ set ignorecase " Ignore la casse lors d’une recherche
 set smartcase " Si une recherche contient une majuscule,
 set incsearch " Surligne les resultats de recherche pendant la
 set hlsearch " Surligne les resultats de recherche
+let mapleader="," "map de la touch leader
 
 " -- Beep
 set visualbell " Empeche Vim de beeper
@@ -59,11 +60,11 @@ execute pathogen#infect()
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 map <leader>e :NERDTreeFind<CR>
 nmap <leader>nt :NERDTreeFind<CR>
+map <C-q> :NERDTreeTabsClose<CR>
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr', '\.DS_Store']
 let NERDTreeChDirMode=0
 let NERDTreeQuitOnOpen=0
-let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=1
@@ -80,9 +81,16 @@ endif
 " --- auto completion 
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
+" vim-symfony
+let g:symfony_app_console_caller= "php"
+let g:symfony_app_console_path= "ezpublish/console"
+
 " -- emplacement custom cTags
 " pour coller avec la commande d'indexation :
 " ctags -f .ctags -h '.php' -R \
+" --extra=+f
+" --langdef=file \
+" --langmap=file:.html.twig.xml.yml \
 " --exclude="\.svn" \
 " --exclude="\.git" \
 " --totals=yes \
@@ -92,6 +100,20 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 " --regex-PHP='/interface ([^ ]*)/\1/c/' \
 " --regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/'
 set tags+=.ctags
+
+" -- enable syntax verif
+let g:checksyntax#auto_enable_rx='.'
+
+" ctrlp Recherche dans les fichiers du projet
+let g:ctrlp_working_path_mode = 'ra'
+nnoremap <silent> <D-t> :CtrlP<CR>
+nnoremap <silent> <D-r> :CtrlPMRU<CR>
+let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+    \ 'file': '\.exe$\|\.so$\|\.dll$\|\.pyc$' }
+
+" Tagbar (barre à gauche qui scanne les fichiers CTAGS, et donne les infos du fichier ouvert)
+nmap <F8> :TagbarToggle<CR>
 
 " Déplacement d'une ligne de texte Netbeans' style ! (haut / droit / bas
 " gauche.

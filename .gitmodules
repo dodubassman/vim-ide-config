@@ -25,3 +25,18 @@
 [submodule ".vim/bundle/snipmate.vim"]
 	path = .vim/bundle/snipmate.vim
 	url = https://github.com/msanders/snipmate.vim.git
+[submodule ".vim/bundle/vim-phpqa"]
+	path = .vim/bundle/vim-phpqa
+	url = https://github.com/joonty/vim-phpqa.git
+[submodule ".vim/bundle/checksyntax_vim"]
+	path = .vim/bundle/checksyntax_vim
+	url = https://github.com/tomtom/checksyntax_vim.git
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = .vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule ".vim/bundle/vim-symfony"]
+	path = .vim/bundle/vim-symfony
+	url = https://github.com/docteurklein/vim-symfony.git
