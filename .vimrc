@@ -22,6 +22,10 @@ set incsearch " Surligne les resultats de recherche pendant la
 set hlsearch " Surligne les resultats de recherche
 let mapleader="," "map de la touch leader
 
+" -- Copier / coller globalement
+map <leader>y "*y<CR>
+map <leader>p "*p
+
 " -- Beep
 set visualbell " Empeche Vim de beeper
 set noerrorbells " Empeche Vim de beeper
@@ -69,6 +73,28 @@ let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
 let g:nerdtree_tabs_open_on_gui_startup=1
 
+"noremap fc <Esc>:call CleanClose(1)<CR>
+noremap <leader>c <Esc>:call CleanClose(0)<CR>
+
+" -- Fermer les onglets nerdtree avec <leader>c
+function! CleanClose(tosave)
+if (a:tosave == 1)
+    w!
+endif
+let todelbufNr = bufnr("%")
+let newbufNr = bufnr("#")
+if ((newbufNr != -1) && (newbufNr != todelbufNr) && buflisted(newbufNr))
+    exe "b".newbufNr
+else
+    bnext
+endif
+
+if (bufnr("%") == todelbufNr)
+    new
+endif
+exe "bd".todelbufNr
+endfunction
+
 " -- Airline (barre en bas et en haut affichant les buffers, et divers infos
 let g:airline#extensions#tabline#enabled=1
 if !exists('g:airline_powerline_fonts')
@@ -88,9 +114,6 @@ let g:symfony_app_console_path= "ezpublish/console"
 " -- emplacement custom cTags
 " pour coller avec la commande d'indexation :
 " ctags -f .ctags -h '.php' -R \
-" --extra=+f
-" --langdef=file \
-" --langmap=file:.html.twig.xml.yml \
 " --exclude="\.svn" \
 " --exclude="\.git" \
 " --totals=yes \
