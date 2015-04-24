@@ -104,26 +104,6 @@ if !exists('g:airline_powerline_fonts')
     set linespace=0
 endif
 
-" --- auto completion 
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
-" vim-symfony
-let g:symfony_app_console_caller= "php"
-let g:symfony_app_console_path= "ezpublish/console"
-
-" -- emplacement custom cTags
-" pour coller avec la commande d'indexation :
-" ctags -f .ctags -h '.php' -R \
-" --exclude="\.svn" \
-" --exclude="\.git" \
-" --totals=yes \
-" --tag-relative=yes \
-" --PHP-kinds=+cf \
-" --regex-PHP='/abstract class ([^ ]*)/\1/c/' \
-" --regex-PHP='/interface ([^ ]*)/\1/c/' \
-" --regex-PHP='/(public |static |abstract |protected |private )+function ([^ (]*)/\2/f/'
-set tags+=.ctags
-
 " -- enable syntax verif
 let g:checksyntax#auto_enable_rx='.'
 

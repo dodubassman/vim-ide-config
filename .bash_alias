@@ -30,3 +30,5 @@ alias raspberrypi="ssh pi@78.193.226.223 -p 6666"
 
 #Screen
 alias screen='/usr/local/Cellar/screen/4.2.1/bin/screen'
+
+alias vim='/usr/local/bin/vim'
